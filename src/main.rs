@@ -15,12 +15,12 @@ fn main() {
     framebuffer.set_background_color(0x000000);
     framebuffer.clear();
 
-    // Define the colors
-    let border_color = 0xFFFFFF; // Red
-    let fill_color = 0xCCCC00;   // Green
+    // Define the colors for the first polygon
+    let border_color1 = 0xFFFFFF; // White
+    let fill_color1 = 0xCCCC00;   // Yellow
 
-    // Define the vertices of the polygon
-    let vertices = vec![
+    // Define the vertices of the first polygon
+    let vertices1 = vec![
         glm::vec3(165.0, 380.0, 0.0),
         glm::vec3(185.0, 360.0, 0.0),
         glm::vec3(180.0, 330.0, 0.0),
@@ -33,8 +33,23 @@ fn main() {
         glm::vec3(193.0, 383.0, 0.0),
     ];
 
-    // Draw and fill the polygon
-    draw_polygon(&mut framebuffer, &vertices, border_color, fill_color);
+    // Define the colors for the second polygon
+    let border_color2 = 0xFFFFFF; // White
+    let fill_color2 = 0x0000FF;   // Blue
+
+    // Define the vertices of the second polygon
+    let vertices2 = vec![
+        glm::vec3(321.0, 335.0, 0.0),
+        glm::vec3(288.0, 286.0, 0.0),
+        glm::vec3(339.0, 251.0, 0.0),
+        glm::vec3(374.0, 302.0, 0.0),
+    ];
+
+    // Draw and fill the first polygon
+    draw_polygon(&mut framebuffer, &vertices1, border_color1, fill_color1);
+
+    // Draw and fill the second polygon
+    draw_polygon(&mut framebuffer, &vertices2, border_color2, fill_color2);
 
     framebuffer.render_buffer("output.bmp").expect("Failed to write BMP file");
 
