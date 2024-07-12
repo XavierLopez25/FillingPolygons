@@ -82,6 +82,14 @@ fn main() {
         glm::vec3(466.0, 180.0, 0.0),
     ];
 
+    // Define the vertices of the hole polygon
+    let hole_vertices = vec![
+        glm::vec3(682.0, 175.0, 0.0),
+        glm::vec3(708.0, 120.0, 0.0),
+        glm::vec3(735.0, 148.0, 0.0),
+        glm::vec3(739.0, 170.0, 0.0),
+    ];
+
     // Draw and fill the first polygon
     draw_polygon(&mut framebuffer, &vertices1, border_color1, fill_color1);
 
@@ -91,8 +99,14 @@ fn main() {
     // Draw and fill the third polygon
     draw_polygon(&mut framebuffer, &vertices3, border_color3, fill_color3);
 
-    // Draw and fill the fourth polygon
+    // Draw and fill the fourth polygon with hole
     draw_polygon(&mut framebuffer, &vertices4, border_color4, fill_color4);
+
+    // Get the background color to use for the hole fill
+    let background_color = framebuffer.background_color.to_hex();
+
+    // Draw the hole polygon without filling, only with border
+    draw_polygon(&mut framebuffer, &hole_vertices, border_color4, background_color);
 
     framebuffer.render_buffer("output.bmp").expect("Failed to write BMP file");
 
