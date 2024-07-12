@@ -56,6 +56,32 @@ fn main() {
         glm::vec3(436.0, 249.0, 0.0),
     ];
 
+    // Define the colors for the fourth polygon
+    let border_color4 = 0xFFFFFF; // White
+    let fill_color4 = 0x00FF00;   // Green
+
+    // Define the vertices of the fourth polygon
+    let vertices4 = vec![
+        glm::vec3(413.0, 177.0, 0.0),
+        glm::vec3(448.0, 159.0, 0.0),
+        glm::vec3(502.0, 88.0, 0.0),
+        glm::vec3(553.0, 53.0, 0.0),
+        glm::vec3(535.0, 36.0, 0.0),
+        glm::vec3(676.0, 37.0, 0.0),
+        glm::vec3(660.0, 52.0, 0.0),
+        glm::vec3(750.0, 145.0, 0.0),
+        glm::vec3(761.0, 179.0, 0.0),
+        glm::vec3(672.0, 192.0, 0.0),
+        glm::vec3(659.0, 214.0, 0.0),
+        glm::vec3(615.0, 214.0, 0.0),
+        glm::vec3(632.0, 230.0, 0.0),
+        glm::vec3(580.0, 230.0, 0.0),
+        glm::vec3(597.0, 215.0, 0.0),
+        glm::vec3(552.0, 214.0, 0.0),
+        glm::vec3(517.0, 144.0, 0.0),
+        glm::vec3(466.0, 180.0, 0.0),
+    ];
+
     // Draw and fill the first polygon
     draw_polygon(&mut framebuffer, &vertices1, border_color1, fill_color1);
 
@@ -64,6 +90,9 @@ fn main() {
 
     // Draw and fill the third polygon
     draw_polygon(&mut framebuffer, &vertices3, border_color3, fill_color3);
+
+    // Draw and fill the fourth polygon
+    draw_polygon(&mut framebuffer, &vertices4, border_color4, fill_color4);
 
     framebuffer.render_buffer("output.bmp").expect("Failed to write BMP file");
 
