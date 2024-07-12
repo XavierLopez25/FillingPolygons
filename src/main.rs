@@ -45,11 +45,25 @@ fn main() {
         glm::vec3(374.0, 302.0, 0.0),
     ];
 
+    // Define the colors for the third polygon
+    let border_color3 = 0xFFFFFF; // White
+    let fill_color3 = 0xFF0000;   // Red
+
+    // Define the vertices of the third polygon
+    let vertices3 = vec![
+        glm::vec3(377.0, 249.0, 0.0),
+        glm::vec3(411.0, 197.0, 0.0),
+        glm::vec3(436.0, 249.0, 0.0),
+    ];
+
     // Draw and fill the first polygon
     draw_polygon(&mut framebuffer, &vertices1, border_color1, fill_color1);
 
     // Draw and fill the second polygon
     draw_polygon(&mut framebuffer, &vertices2, border_color2, fill_color2);
+
+    // Draw and fill the third polygon
+    draw_polygon(&mut framebuffer, &vertices3, border_color3, fill_color3);
 
     framebuffer.render_buffer("output.bmp").expect("Failed to write BMP file");
 
